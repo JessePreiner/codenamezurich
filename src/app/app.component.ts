@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AngularFire, FirebaseListObservable, AuthMethods, AuthProviders } from 'angularfire2';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+  constructor(public af: AngularFire) {
+    this.af.auth.subscribe(auth => console.log(auth));
+  }
+  login() {
+    this.af.auth.login({
+      provider: AuthProviders.Google,
+      method: AuthMethods.Popup,
+    });
+  }
 }
