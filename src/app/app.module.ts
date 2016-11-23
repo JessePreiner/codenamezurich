@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AngularFireModule, AuthProviders, AuthMethods  } from 'angularfire2';
 import { AppComponent } from './app.component';
+import { MediaListComponent } from './media-list/media-list.component';
 
 export const firebaseConfig = {
     apiKey: "AIzaSyCQYbUtadvTq3Po9t858QLIVIl_ros1qnk",
@@ -19,7 +20,8 @@ const authConfig = {
 }
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MediaListComponent
   ],
   imports: [
     BrowserModule,
