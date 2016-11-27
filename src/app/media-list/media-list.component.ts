@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-media-list',
+  selector: 'media-list',
   templateUrl: './media-list.component.html',
   styleUrls: ['./media-list.component.css']
 })
-export class MediaListComponent implements OnInit {
-
+export class MediaListComponent {
+  @Input() items: any[];
   constructor() { }
-
-  ngOnInit() {
-  }
 
 }

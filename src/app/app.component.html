@@ -1,7 +1,2 @@
-<button (click)="login()">Login</button>
-
-<ul>
-  <li class="text" *ngFor="let item of items | async">
-    {{item.$value}}
-  </li>
-</ul>
+<publications-list class="items" [items]="publications"></publications-list>
+<media-list class="items" [items]="characters"></media-list>
