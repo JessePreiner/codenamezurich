@@ -16,5 +16,4 @@ export class PublicationsService {
       {id:"3jg3j3j4g0sgf", title:"A Land Before Time"}
     ])
   }
-
 }
