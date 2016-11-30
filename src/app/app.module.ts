@@ -10,6 +10,7 @@ import { PublicationsListComponent } from './publications-list/publications-list
 import { PublicationsService } from "./services/publications.service";
 import { CharactersService } from "./services/characters.service";
 import { CharacterDetailComponent } from './character-detail/character-detail.component';
+import { InventoryComponent } from './inventory/inventory.component';
 
 export const firebaseConfig = {
     apiKey: "AIzaSyCQYbUtadvTq3Po9t858QLIVIl_ros1qnk",
@@ -28,7 +29,8 @@ const authConfig = {
     AppComponent,
     CharacterListComponent,
     PublicationsListComponent,
-    CharacterDetailComponent
+    CharacterDetailComponent,
+    InventoryComponent
   ],
   imports: [
     BrowserModule,
