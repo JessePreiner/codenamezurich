@@ -2,11 +2,11 @@ import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { Character } from "../models/character";
 
 @Component({
-  selector: 'media-list',
-  templateUrl: './media-list.component.html',
-  styleUrls: ['./media-list.component.css']
+  selector: 'character-list',
+  templateUrl: './character-list.component.html',
+  styleUrls: ['./character-list.component.css']
 })
-export class MediaListComponent {
+export class CharacterListComponent {
   @Input()
   items: any[];
 

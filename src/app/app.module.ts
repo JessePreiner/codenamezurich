@@ -4,11 +4,11 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AngularFireModule, AuthProviders, AuthMethods  } from 'angularfire2';
 import { AppComponent } from './app.component';
-import { MediaListComponent } from './media-list/media-list.component';
+import { CharacterListComponent } from './character-list/character-list.component';
 import { MaterialModule } from '@angular/material';
 import { PublicationsListComponent } from './publications-list/publications-list.component';
 import { PublicationsService } from "./services/publications.service";
-import {CharactersService} from "./services/characters.service";
+import { CharactersService } from "./services/characters.service";
 import { CharacterDetailComponent } from './character-detail/character-detail.component';
 
 export const firebaseConfig = {
@@ -26,7 +26,7 @@ const authConfig = {
 @NgModule({
   declarations: [
     AppComponent,
-    MediaListComponent,
+    CharacterListComponent,
     PublicationsListComponent,
     CharacterDetailComponent
   ],
