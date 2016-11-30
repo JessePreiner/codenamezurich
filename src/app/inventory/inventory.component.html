@@ -1,3 +1,5 @@
-<p>
-  inventory works!
-</p>
+<div class="page-wrap">
+  <publications-list class="items" [items]="publications"></publications-list>
+  <character-list class="items" (itemSelected)="characterSelected($event)" [items]="characters"></character-list>
+  <character-detail [character]="selectedCharacter"></character-detail>
+</div>
