@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import {BehaviorSubject} from "rxjs/BehaviorSubject";
-import {Character} from "../models/character";
+import { BehaviorSubject } from "rxjs/BehaviorSubject";
+import { Character } from "../models/character";
 
 @Injectable()
 export class CharactersService {
@@ -23,9 +23,4 @@ export class CharactersService {
   constructor() { }
 
 }
-//
-// id?:string;
-// name?:string;
-// relations?:any[];
-// publications?:string[];
-// notes?:string;
+

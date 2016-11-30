@@ -21,7 +21,7 @@ export class InventoryComponent implements OnInit {
     this.subscriptions = [];
     publicationService.load();
     characterService.load();
-
+    
     this.subscriptions.push(publicationService.publications$.subscribe((publications) => {
       this.publications = publications;
     }));
