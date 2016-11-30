@@ -9,6 +9,7 @@ import { MaterialModule } from '@angular/material';
 import { PublicationsListComponent } from './publications-list/publications-list.component';
 import { PublicationsService } from "./services/publications.service";
 import {CharactersService} from "./services/characters.service";
+import { CharacterDetailComponent } from './character-detail/character-detail.component';
 
 export const firebaseConfig = {
     apiKey: "AIzaSyCQYbUtadvTq3Po9t858QLIVIl_ros1qnk",
@@ -26,7 +27,8 @@ const authConfig = {
   declarations: [
     AppComponent,
     MediaListComponent,
-    PublicationsListComponent
+    PublicationsListComponent,
+    CharacterDetailComponent
   ],
   imports: [
     BrowserModule,

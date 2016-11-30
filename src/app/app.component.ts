@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { AngularFire, FirebaseListObservable, AuthMethods, AuthProviders } from 'angularfire2';
-import {Character} from "./models/character";
 import {PublicationsService} from "./services/publications.service";
 import {CharactersService} from "./services/characters.service";
+import {Character} from "./models/character";
 
 @Component({
   selector: 'app-root',
@@ -14,7 +14,7 @@ export class AppComponent {
   characters:any[];
   publications:any[];
   selectedPublication: string;
-  selectedCharacter: string;
+  selectedCharacter: Character;
   subscriptions: any[];
 
   constructor(publicationService: PublicationsService, characterService: CharactersService) {
@@ -30,5 +30,9 @@ export class AppComponent {
     this.subscriptions.push(characterService.characters$.subscribe((characters) => {
       this.characters = characters
     }));
+  }
+
+  characterSelected(character:Character):void {
+    this.selectedCharacter = character;
   }
 }

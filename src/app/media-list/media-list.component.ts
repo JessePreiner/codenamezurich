@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
+import { Character } from "../models/character";
 
 @Component({
   selector: 'media-list',
@@ -6,7 +7,16 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./media-list.component.css']
 })
 export class MediaListComponent {
-  @Input() items: any[];
-  constructor() { }
+  @Input()
+  items: any[];
 
+  @Output()
+  itemSelected:EventEmitter<Character> = new EventEmitter<Character>();
+
+  constructor() {
+  }
+
+  onSelect(item:any) {
+    this.itemSelected.emit(item);
+  }
 }

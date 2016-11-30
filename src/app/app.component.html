@@ -1,2 +1,5 @@
-<publications-list class="items" [items]="publications"></publications-list>
-<media-list class="items" [items]="characters"></media-list>
+<div class="page-wrap">
+  <publications-list class="items" [items]="publications"></publications-list>
+  <media-list class="items" (itemSelected)="characterSelected($event)" [items]="characters"></media-list>
+  <character-detail [character]="selectedCharacter"></character-detail>
+</div>
