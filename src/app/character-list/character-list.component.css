@@ -12,3 +12,11 @@
 .character {
   max-width:100%;
 }
+
+.btn-add-character {
+  float:right;
+  background-color: #63df70;
+  color:white;
+  font-size:1.1rem;
+}
+
