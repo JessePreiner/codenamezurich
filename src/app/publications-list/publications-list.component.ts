@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import {Publication} from "../models/publication";
 
 @Component({
   selector: 'publications-list',
@@ -6,7 +7,17 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./publications-list.component.css']
 })
 export class PublicationsListComponent {
-  @Input() items: any[];
+
   constructor() { }
+
+  @Input()
+  items: any[];
+
+  @Output()
+  publicationSelected:EventEmitter<Publication> = new EventEmitter<Publication>();
+
+  onSelect(publication:Publication) : void {
+    this.publicationSelected.emit(publication);
+  }
 
 }

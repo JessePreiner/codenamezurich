@@ -3,9 +3,8 @@
   <md-card-content>
     <md-list>
       <md-list-item *ngFor="let item of items">
-        <p md-line class="item-header" title="{{item.title}}" md-line>{{item.title}}</p>
+        <p md-line (click)="onSelect(item)" class="item-header" title="{{item.title}}" md-line>{{item.title}}</p>
       </md-list-item>
     </md-list>
-
   </md-card-content>
 </md-card>

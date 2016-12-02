@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Character} from "../models/character";
-import {PublicationsService} from "../services/publications.service";
-import {CharactersService} from "../services/characters.service";
+import { Character } from "../models/character";
+import { PublicationsService } from "../services/publications.service";
+import { CharactersService } from "../services/characters.service";
+import { Publication } from "../models/publication";
 
 @Component({
   selector: 'app-inventory',
@@ -10,32 +11,31 @@ import {CharactersService} from "../services/characters.service";
 })
 export class InventoryComponent implements OnInit {
 
-  characters:any[];
-  publications:any[];
-  selectedPublication: string;
+  selectedPublication: Publication;
   selectedCharacter: Character;
   subscriptions: any[];
-  
+
+  characters$: any;
+  publications$: any;
+
   constructor(publicationService: PublicationsService, characterService: CharactersService) {
 
     this.subscriptions = [];
+
+    this.characters$ = characterService.characters$;
+    this.publications$ = publicationService.publications$;
     publicationService.load();
     characterService.load();
-    
-    this.subscriptions.push(publicationService.publications$.subscribe((publications) => {
-      this.publications = publications;
-    }));
-
-    this.subscriptions.push(characterService.characters$.subscribe((characters) => {
-      this.characters = characters
-    }));
   }
 
   characterSelected(character:Character):void {
     this.selectedCharacter = character;
   }
-  
-  ngOnInit() {
+
+  publicationSelected(publication:Publication):void {
+    this.selectedPublication = publication;
   }
+
+  ngOnInit() {}
 
 }
