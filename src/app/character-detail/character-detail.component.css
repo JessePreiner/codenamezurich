@@ -2,3 +2,7 @@
   display:inline-block;
   width:32%;
 }
+
+input, textarea {
+  width:100%;
+}

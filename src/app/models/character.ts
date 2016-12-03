@@ -4,5 +4,4 @@ export interface Character {
     relations?:any[];
     publications?:string[];
     notes?:string;
-
 }

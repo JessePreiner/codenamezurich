@@ -1,8 +1,14 @@
 <md-card class="card card-section" *ngIf="character">
-  <md-card-title>{{character.name}}</md-card-title>
+  <md-card-title>
+    <input [(ngModel)]="character.name" />
+  </md-card-title>
   <md-card-content>
-    <p>Notes: <br />{{character.notes}}</p>
-    <p>Publications: <br />{{character.publications}}</p>
+    <p>Notes: <br />
+      <textarea [(ngModel)]="character.notes"></textarea>
+    </p>
+    <p>Publications: <br />
+      <input [(ngModel)]="character.publications"/>
+    </p>
   </md-card-content>
 </md-card>
 
