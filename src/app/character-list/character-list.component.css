@@ -7,6 +7,7 @@
   position: relative;
   width: 300px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  padding:10px 0px;
 }
 
 .character {
@@ -18,5 +19,9 @@
   background-color: #63df70;
   color:white;
   font-size:1.1rem;
+}
+
+.md-line {
+ white-space: normal;
 }
 

@@ -6,11 +6,9 @@
   </md-card-title>
   <md-card-content>
     <md-list>
-      <md-list-item *ngFor="let item of items">
-        <div class="character" (click)="onSelect(item)" >
-          <h3 class="item-header" title="{{item.name}}" md-line>{{item.name}}</h3>
-          <p md-line title="{{item.notes}}" class="demo-2"> {{item.notes}}</p>
-        </div>
+      <md-list-item class="character" *ngFor="let item of items" (click)="onSelect(item)">
+        <h3 class="item-header" title="{{item.name}}" md-line>{{item.name}}</h3>
+        <p class="md-line" md-line title="{{item.notes}}"> {{item.notes}}</p>
       </md-list-item>
     </md-list>
   </md-card-content>
