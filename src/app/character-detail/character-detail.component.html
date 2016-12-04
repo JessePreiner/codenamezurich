@@ -1,7 +1,9 @@
-<md-card class="card card-section" *ngIf="character">
+<md-card class="card card-section">
   <form #form="ngForm">
   <md-card-title>
-    <input (blur)="updateCharacter(form.dirty)" [(ngModel)]="character.name" name="name"/>
+    <p>Name:
+      <input (blur)="updateCharacter(form.dirty)" [(ngModel)]="character.name" name="name"/>
+    </p>
   </md-card-title>
   <md-card-content>
     <p>Notes: <br />

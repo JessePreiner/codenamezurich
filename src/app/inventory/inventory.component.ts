@@ -29,6 +29,7 @@ export class InventoryComponent implements OnInit {
   }
 
   characterSelected(character:Character):void {
+    console.log(character);
     this.selectedCharacter = character;
   }
 

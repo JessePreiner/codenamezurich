@@ -17,6 +17,6 @@ export class CharacterListComponent {
   }
 
   onSelect(item:any) {
-    this.itemSelected.emit(item);
+    this.itemSelected.emit(item || {});
   }
 }
