@@ -11,6 +11,7 @@ import { Publication } from "../models/publication";
 })
 export class InventoryComponent implements OnInit {
 
+  characterService:CharactersService;
   selectedPublication: Publication;
   selectedCharacter: Character;
   subscriptions: any[];
@@ -19,7 +20,7 @@ export class InventoryComponent implements OnInit {
   publications$: any;
 
   constructor(publicationService: PublicationsService, characterService: CharactersService) {
-
+    this.characterService = characterService;
     this.subscriptions = [];
 
     this.characters$ = characterService.characters$;
@@ -39,6 +40,7 @@ export class InventoryComponent implements OnInit {
 
   characterUpdated(character:Character):void {
     // write updated character for FIREMOTHAFUCKINBASE
+    this.characterService.update(character).then(() => console.log('ugh'));
     console.log(`new character is \n${JSON.stringify(character)}`);
   }
 

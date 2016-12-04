@@ -5,10 +5,16 @@ import { Character } from "../models/character";
 @Injectable()
 export class CharactersService {
 
-
   private characterSource = new BehaviorSubject<Array<Character>>(new Array<Character>());
 
   characters$ = this.characterSource.asObservable();
+
+  constructor() { }
+
+  update(character:Character):Promise<any> {
+    console.log('character service about to get jiggy');
+    return Promise.resolve();
+  }
 
   load() {
     let initialData:Character[] = [
@@ -21,7 +27,5 @@ export class CharactersService {
     ];
     this.characterSource.next(initialData);
   }
-  constructor() { }
-
 }
 

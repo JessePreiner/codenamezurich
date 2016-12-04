@@ -2,15 +2,15 @@
   <form #form="ngForm">
   <md-card-title>
     <p>Name:
-      <input (blur)="updateCharacter(form.dirty)" [(ngModel)]="character.name" name="name"/>
+      <input (blur)="updateCharacter(form)" [(ngModel)]="character.name" name="name"/>
     </p>
   </md-card-title>
   <md-card-content>
     <p>Notes: <br />
-      <textarea #area (blur)="updateCharacter(form.dirty)" [(ngModel)]="character.notes" name="notes"></textarea>
+      <textarea #area (blur)="updateCharacter(form)" [(ngModel)]="character.notes" name="notes"></textarea>
     </p>
     <p>Publications: <br />
-      <input (blur)="updateCharacter(form.dirty)" [(ngModel)]="character.publications" name="publications"/>
+      <input (blur)="updateCharacter(form)" [(ngModel)]="character.publications" name="publications"/>
     </p>
     <br />
   </md-card-content>
