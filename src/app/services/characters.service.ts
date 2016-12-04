@@ -5,7 +5,7 @@ import { Character } from "../models/character";
 @Injectable()
 export class CharactersService {
 
-  private characterSource = new BehaviorSubject<Array<Character>>(new Array<Character>());
+  private characterSource = new BehaviorSubject<Character[]>([]);
 
   characters$ = this.characterSource.asObservable();
 

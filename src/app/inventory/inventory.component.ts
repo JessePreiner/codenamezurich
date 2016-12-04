@@ -40,7 +40,8 @@ export class InventoryComponent implements OnInit {
 
   characterUpdated(character:Character):void {
     // write updated character for FIREMOTHAFUCKINBASE
-    this.characterService.update(character).then(() => console.log('ugh'));
+    this.characterService.update(character)
+      .then(() => console.log('ugh'));
     console.log(`new character is \n${JSON.stringify(character)}`);
   }
 

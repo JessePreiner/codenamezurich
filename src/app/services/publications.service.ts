@@ -5,7 +5,7 @@ import {BehaviorSubject} from "rxjs/BehaviorSubject";
 @Injectable()
 export class PublicationsService {
 
-  private publicationsSource = new BehaviorSubject<Array<Publication>>(new Array<Publication>());
+  private publicationsSource = new BehaviorSubject<Publication[]>([]);
 
   publications$ = this.publicationsSource.asObservable();
 
