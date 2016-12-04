@@ -1,15 +1,17 @@
 <md-card class="card card-section" *ngIf="character">
+  <form #form="ngForm">
   <md-card-title>
-    <input (blur)="updateCharacter()" [(ngModel)]="character.name" />
+    <input (blur)="updateCharacter(form.dirty)" [(ngModel)]="character.name" name="name"/>
   </md-card-title>
   <md-card-content>
     <p>Notes: <br />
-      <textarea (blur)="updateCharacter()" [(ngModel)]="character.notes"></textarea>
+      <textarea #area (blur)="updateCharacter(form.dirty)" [(ngModel)]="character.notes" name="notes"></textarea>
     </p>
     <p>Publications: <br />
-      <input (blur)="updateCharacter()" [(ngModel)]="character.publications"/>
+      <input (blur)="updateCharacter(form.dirty)" [(ngModel)]="character.publications" name="publications"/>
     </p>
     <br />
   </md-card-content>
+  </form>
 </md-card>
 

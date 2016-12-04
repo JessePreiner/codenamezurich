@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import {Character} from "../models/character";
+import {log} from "util";
 
 @Component({
   selector: 'character-detail',
@@ -19,8 +20,12 @@ export class CharacterDetailComponent implements OnInit {
 
   ngOnInit() {}
 
-  updateCharacter(event) {
-    this.characterUpdated.emit(this.character)
+  updateCharacter(propHasChanged:boolean) {
+    if (propHasChanged) {
+      console.log('should update: ', event);
+      this.characterUpdated.emit(this.character);
+    } else {
+      console.log('no changes done');
+    }
   }
-
 }
