@@ -1,10 +1,12 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import {Publication} from "../models/publication";
 
 @Component({
   selector: 'publications-list',
   templateUrl: './publications-list.component.html',
-  styleUrls: ['./publications-list.component.css']
+  styleUrls: ['./publications-list.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
+
 })
 export class PublicationsListComponent {
 

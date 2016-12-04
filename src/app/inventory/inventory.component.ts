@@ -36,6 +36,11 @@ export class InventoryComponent implements OnInit {
     this.selectedPublication = publication;
   }
 
+  characterUpdated(character:Character):void {
+    // write updated character for FIREMOTHAFUCKINBASE
+    console.log(`new character is \n${JSON.stringify(character)}`);
+  }
+
   ngOnInit() {}
 
 }
