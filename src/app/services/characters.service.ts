@@ -1,31 +1,32 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from "rxjs/BehaviorSubject";
-import { Character } from "../models/character";
+import { ICharacter } from "../models/character";
+import { AngularFire } from "angularfire2/angularfire2";
+import { FirebaseListObservable } from "angularfire2/index";
 
 @Injectable()
-export class CharactersService {
+export class CharactersService  {
 
-  private characterSource = new BehaviorSubject<Character[]>([]);
+  private characterSource = new BehaviorSubject<ICharacter[]>([]);
 
   characters$ = this.characterSource.asObservable();
+  charsFire$:FirebaseListObservable<ICharacter[]>;
 
-  constructor() { }
-
-  update(character:Character):Promise<any> {
-    console.log('character service about to get jiggy');
-    return Promise.resolve();
+  constructor(private db:AngularFire) {
+    this.charsFire$ = this.db.database.list(`/jesse/characters`);
   }
 
-  load() {
-    let initialData:Character[] = [
-      {id: "34iuhgrlijh4t", publications:["kljh4lkjh4hsg","3587hhkjhdfh4","3jg3j3j4g0sgf" ],name:"Jesse", notes: "Jesse was introduced in chapter 2. He is married to Jenn, " +
-      "and did that really significant thing that I should remember."},
-      {id: "4jkhglkjh4ghh", publications: ["3jg3j3j4g0sgf"], name:"Jenn", notes: "Jenn is Jesse's super pretty girlfriend, but only because she" +
-      "hates being called fiance. She did that really important thing in chapter 3."},
-      {id: "f90rg08dg098f", publications: ["3587hhkjhdfh4"], name:"Johnny", notes: "Johnny is son of Jack, who is son of Greg, from the land" +
-      "near the Misty Mountains. He did that other thing in an early chapter."}
-    ];
-    this.characterSource.next(initialData);
+  update(character:ICharacter):Promise<any> {
+    if (character.$key) {
+      const key:string = character.$key;
+      this.charsFire$.update(key, {name: character.name, notes: character.notes, publications: character.publications});
+      return Promise.resolve();
+
+    } else {
+      this.charsFire$.push(character)
+      return Promise.resolve();
+
+    }
   }
 }
 

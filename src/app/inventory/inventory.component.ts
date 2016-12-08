@@ -23,14 +23,12 @@ export class InventoryComponent implements OnInit {
     this.characterService = characterService;
     this.subscriptions = [];
 
-    this.characters$ = characterService.characters$;
+    this.characters$ = characterService.charsFire$;
     this.publications$ = publicationService.publications$;
     publicationService.load();
-    characterService.load();
   }
 
   characterSelected(character:Character):void {
-    console.log(character);
     this.selectedCharacter = character;
   }
 
@@ -42,7 +40,6 @@ export class InventoryComponent implements OnInit {
     // write updated character for FIREMOTHAFUCKINBASE
     this.characterService.update(character)
       .then(() => console.log('ugh'));
-    console.log(`new character is \n${JSON.stringify(character)}`);
   }
 
   ngOnInit() {}

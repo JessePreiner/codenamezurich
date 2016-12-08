@@ -21,11 +21,8 @@ export class CharacterDetailComponent implements OnInit {
 
   updateCharacter(form) {
     if (form.dirty) {
-      console.log('should update: ', event);
       this.characterUpdated.emit(this.character);
       form.reset(this.character);
-    } else {
-      console.log('no changes done');
     }
   }
 }
