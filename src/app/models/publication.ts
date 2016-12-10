@@ -1,7 +1,4 @@
-export interface IPublication {
-    key?:string;
-    title:string;
-}
+import { IPublication } from './interfaces/ipublication';
 
 export class Publication implements IPublication {
   title:string;

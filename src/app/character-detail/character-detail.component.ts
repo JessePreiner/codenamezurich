@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { ICharacter } from "../models/interfaces/icharacter";
-import { IPublication } from "../models/publication"
+import { IPublication } from "../models/interfaces/ipublication"
 
 @Component({
   selector: 'character-detail',
@@ -10,17 +10,11 @@ import { IPublication } from "../models/publication"
 })
 export class CharacterDetailComponent implements OnInit {
 
-  @Input()
-  character:ICharacter;
+  @Input() character:ICharacter;
+  @Input() publications:IPublication[];
 
-  @Input()
-  publications:IPublication[];
-
-  @Output()
-  characterUpdated:EventEmitter<ICharacter> = new EventEmitter<ICharacter>();
-
-  @Output()
-  characterDeleted:EventEmitter<ICharacter> = new EventEmitter<ICharacter>();
+  @Output() characterUpdated:EventEmitter<ICharacter> = new EventEmitter<ICharacter>();
+  @Output() characterDeleted:EventEmitter<ICharacter> = new EventEmitter<ICharacter>();
   
   constructor() {}
 

@@ -1,8 +1,8 @@
+import { IPublication } from './../models/interfaces/ipublication';
 import { Component, OnInit } from '@angular/core';
 import { ICharacter } from "../models/interfaces/icharacter";
 import { PublicationsService } from "../services/publications.service";
 import { CharactersService } from "../services/characters.service";
-import { Publication } from "../models/publication";
 
 @Component({
   selector: 'app-inventory',
@@ -12,28 +12,24 @@ import { Publication } from "../models/publication";
 export class InventoryComponent implements OnInit {
 
   characterService:CharactersService;
-  selectedPublication: Publication;
+  selectedPublication: IPublication;
   selectedCharacter: ICharacter;
-  subscriptions: any[];
 
   characters$: any;
   publications$: any;
 
   constructor(publicationService: PublicationsService, characterService: CharactersService) {
     this.characterService = characterService;
-    this.subscriptions = [];
 
     this.characters$ = characterService.charsFire$;
-    this.publications$ = publicationService.publications$;
-    
-    publicationService.load();
+    this.publications$ = publicationService.pubsFire$;
   }
 
   characterSelected(character:ICharacter):void {
     this.selectedCharacter = character;
   }
 
-  publicationSelected(publication:Publication):void {
+  publicationSelected(publication:IPublication):void {
     this.selectedPublication = publication;
   }
 

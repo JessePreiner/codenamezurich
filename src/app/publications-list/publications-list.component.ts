@@ -6,17 +6,17 @@ import {Publication} from "../models/publication";
   templateUrl: './publications-list.component.html',
   styleUrls: ['./publications-list.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
-
 })
 export class PublicationsListComponent {
 
-  constructor() { }
+  constructor() {}
 
-  @Input()
-  items: any[];
+  @Input() items: any[];
+  @Output() publicationSelected:EventEmitter<Publication> = new EventEmitter<Publication>();
 
-  @Output()
-  publicationSelected:EventEmitter<Publication> = new EventEmitter<Publication>();
+  addPublication() {
+    
+  }
 
   onSelect(publication:Publication) : void {
     this.publicationSelected.emit(publication);

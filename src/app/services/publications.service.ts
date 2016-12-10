@@ -1,16 +1,20 @@
+import { Publication } from './../models/publication';
 import { Injectable } from '@angular/core';
-import {Publication} from "../models/publication";
-import {BehaviorSubject} from "rxjs/BehaviorSubject";
+import { BehaviorSubject } from "rxjs/BehaviorSubject";
+import { AngularFire, FirebaseListObservable } from "angularfire2/index";
+import { IPublication } from './../models/interfaces/ipublication';
 
 @Injectable()
 export class PublicationsService {
+    pubsFire$:FirebaseListObservable<IPublication[]>;
 
-   private publicationsSource = new BehaviorSubject<Publication[]>([]);
+    constructor(private db:AngularFire) {
+    this.pubsFire$ = this.db.database.list(`/publications`);
 
-  publications$ = this.publicationsSource.asObservable();
+    this.pubsFire$.push(new Publication("Lord of the rings"));
+    this.pubsFire$.push(new Publication("The Martian"));
+    this.pubsFire$.push(new Publication("Carrie"));
+    this.pubsFire$.push(new Publication("Ready Player One"));
+  }
   
-   load() {
-     let initialData:Publication[] =[];
-     this.publicationsSource.next(initialData);
-   }
 }

@@ -1,15 +1,11 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from "rxjs/BehaviorSubject";
 import { ICharacter } from "../models/interfaces/icharacter";
-import { AngularFire } from "angularfire2/angularfire2";
-import { FirebaseListObservable } from "angularfire2/index";
+import { AngularFire, FirebaseListObservable } from "angularfire2/angularfire2";
 
 @Injectable()
 export class CharactersService  {
 
-  private characterSource = new BehaviorSubject<ICharacter[]>([]);
-
-  characters$ = this.characterSource.asObservable();
   charsFire$:FirebaseListObservable<ICharacter[]>;
 
   constructor(private db:AngularFire) {
