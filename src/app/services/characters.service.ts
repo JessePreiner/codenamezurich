@@ -18,14 +18,12 @@ export class CharactersService  {
 
   update(character:ICharacter):Promise<any> {
     if (character.$key) {
-      const key:string = character.$key;
-      this.charsFire$.update(key, {name: character.name, notes: character.notes, publications: character.publications});
-      return Promise.resolve();
-
+      this.charsFire$.update(character.$key, {name: character.name, notes: character.notes, publications: character.publications});
+      return Promise.resolve(character);
     } else {
-      this.charsFire$.push(character)
-      return Promise.resolve();
-
+      const ref = this.charsFire$.push(character);
+      character.$key = ref.key;
+      return Promise.resolve(character);
     }
   }
 }

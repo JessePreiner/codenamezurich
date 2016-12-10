@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Character } from "../models/character";
+import { ICharacter } from "../models/character";
 import { PublicationsService } from "../services/publications.service";
 import { CharactersService } from "../services/characters.service";
 import { Publication } from "../models/publication";
@@ -13,7 +13,7 @@ export class InventoryComponent implements OnInit {
 
   characterService:CharactersService;
   selectedPublication: Publication;
-  selectedCharacter: Character;
+  selectedCharacter: ICharacter;
   subscriptions: any[];
 
   characters$: any;
@@ -28,7 +28,7 @@ export class InventoryComponent implements OnInit {
     publicationService.load();
   }
 
-  characterSelected(character:Character):void {
+  characterSelected(character:ICharacter):void {
     this.selectedCharacter = character;
   }
 
@@ -36,10 +36,10 @@ export class InventoryComponent implements OnInit {
     this.selectedPublication = publication;
   }
 
-  characterUpdated(character:Character):void {
-    // write updated character for FIREMOTHAFUCKINBASE
+  characterUpdated(character:ICharacter):void {
     this.characterService.update(character)
-      .then(() => console.log('ugh'));
+      .then((char:ICharacter) => {console.log(char); this.selectedCharacter = char});
+
   }
 
   ngOnInit() {}
