@@ -10,11 +10,6 @@ export class PublicationsService {
 
     constructor(private db:AngularFire) {
     this.pubsFire$ = this.db.database.list(`/publications`);
-
-    this.pubsFire$.push(new Publication("Lord of the rings"));
-    this.pubsFire$.push(new Publication("The Martian"));
-    this.pubsFire$.push(new Publication("Carrie"));
-    this.pubsFire$.push(new Publication("Ready Player One"));
   }
   
 }

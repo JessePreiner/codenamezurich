@@ -6,8 +6,8 @@
   </md-card-title>
   <md-card-content>
     <md-list>
-      <md-list-item *ngFor="let item of items">
-        <p md-line (click)="onSelect(item)" class="item-header" title="{{item.title}}" md-line>{{item.title}}</p>
+      <md-list-item *ngFor="let publication of publications">
+        <p md-line (click)="onSelect(publication)" class="item-header" title="{{publication.title}}" md-line>{{publication.title}}</p>
       </md-list-item>
     </md-list>
   </md-card-content>

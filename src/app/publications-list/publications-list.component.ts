@@ -11,7 +11,7 @@ export class PublicationsListComponent {
 
   constructor() {}
 
-  @Input() items: any[];
+  @Input() publications: any[];
   @Output() publicationSelected:EventEmitter<Publication> = new EventEmitter<Publication>();
 
   addPublication() {

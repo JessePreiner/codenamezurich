@@ -1,3 +1,4 @@
+import { ICharacter } from './../models/interfaces/icharacter';
 import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { Character } from "../models/character";
 
@@ -7,16 +8,13 @@ import { Character } from "../models/character";
   styleUrls: ['./character-list.component.css']
 })
 export class CharacterListComponent {
-  @Input()
-  items: any[];
+  @Input() characters: any[];
 
-  @Output()
-  itemSelected:EventEmitter<Character> = new EventEmitter<Character>();
+  @Output() characterSelected:EventEmitter<ICharacter> = new EventEmitter<ICharacter>();
 
-  constructor() {
-  }
+  constructor() {}
 
-  onSelect(item:any) {
-    this.itemSelected.emit(item || {});
+  onSelect(character:ICharacter) {
+    this.characterSelected.emit(character || new Character("",""));
   }
 }

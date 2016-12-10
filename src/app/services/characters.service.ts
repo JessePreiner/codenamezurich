@@ -9,6 +9,7 @@ export class CharactersService  {
   charsFire$:FirebaseListObservable<ICharacter[]>;
 
   constructor(private db:AngularFire) {
+    //TODO: use firebase auth to get /<user> segment
     this.charsFire$ = this.db.database.list(`/jesse/characters`);
   }
 

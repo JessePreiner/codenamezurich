@@ -29,4 +29,8 @@ export class CharacterDetailComponent implements OnInit {
       form.reset(this.character);
     }
   }
+
+  characterPublications() {
+    return new Array(this.character.publications);
+  }
 }
