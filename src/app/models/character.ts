@@ -1,10 +1,4 @@
-export interface ICharacter {
-    $key?:string;
-    name:string;
-    relations?:any[];
-    publications?:string[];
-    notes:string;
-}
+import { ICharacter }  from "./interfaces/icharacter"
 
 export class Character implements ICharacter {
   name:string;

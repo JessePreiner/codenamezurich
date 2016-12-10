@@ -1,5 +1,5 @@
 <div class="page-wrap">
   <publications-list class="items" (publicationSelected)="publicationSelected($event)" [items]="publications$ | async"></publications-list>
   <character-list class="items" (itemSelected)="characterSelected($event)" [items]="characters$ | async"></character-list>
-  <character-detail *ngIf="selectedCharacter" (characterDeleted)="characterDeleted($event)" (characterUpdated)="characterUpdated($event)" [character]="selectedCharacter"></character-detail>
+  <character-detail *ngIf="selectedCharacter" [publications]="publications" (characterDeleted)="characterDeleted($event)" (characterUpdated)="characterUpdated($event)" [character]="selectedCharacter"></character-detail>
 </div>

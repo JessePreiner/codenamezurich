@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from "rxjs/BehaviorSubject";
-import { ICharacter } from "../models/character";
+import { ICharacter } from "../models/interfaces/icharacter";
 import { AngularFire } from "angularfire2/angularfire2";
 import { FirebaseListObservable } from "angularfire2/index";
 
@@ -27,7 +27,7 @@ export class CharactersService  {
 
   update(character:ICharacter):Promise<any> {
     if (character.$key) {
-      this.charsFire$.update(character.$key, {name: character.name, notes: character.notes, publications: character.publications});
+      this.charsFire$.update(character.$key, {name: character.name || "", notes: character.notes || "", publications: character.publications || ""});
       return Promise.resolve(character);
     } else {
       const ref = this.charsFire$.push(character);

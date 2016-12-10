@@ -9,9 +9,13 @@
     <p>Notes: <br />
       <textarea #area (blur)="updateCharacter(form)" [(ngModel)]="character.notes" name="notes"></textarea>
     </p>
-    <p>Publications: <br />
+    <p>Publications:</p>
+      <!--<div>
+        <ul>
+          <li *ngFor="let publication of character.publications"></li>
+        </ul>
+      </div>-->
       <input (blur)="updateCharacter(form)" [(ngModel)]="character.publications" name="publications"/>
-    </p>
     <br />
   </md-card-content>
   </form>

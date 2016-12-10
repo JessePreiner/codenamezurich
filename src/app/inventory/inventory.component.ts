@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ICharacter } from "../models/character";
+import { ICharacter } from "../models/interfaces/icharacter";
 import { PublicationsService } from "../services/publications.service";
 import { CharactersService } from "../services/characters.service";
 import { Publication } from "../models/publication";
@@ -25,6 +25,7 @@ export class InventoryComponent implements OnInit {
 
     this.characters$ = characterService.charsFire$;
     this.publications$ = publicationService.publications$;
+    
     publicationService.load();
   }
 

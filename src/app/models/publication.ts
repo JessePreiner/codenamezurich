@@ -1,7 +1,6 @@
 export interface IPublication {
     key?:string;
     title:string;
-
 }
 
 export class Publication implements IPublication {
