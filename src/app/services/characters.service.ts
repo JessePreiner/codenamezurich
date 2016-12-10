@@ -16,6 +16,15 @@ export class CharactersService  {
     this.charsFire$ = this.db.database.list(`/jesse/characters`);
   }
 
+  delete(characterKey:string):Promise<any> {
+    if (characterKey) {
+      this.charsFire$.remove(characterKey);
+      return Promise.resolve();
+    } else {
+      return Promise.reject('Nothing to do');
+    }
+  }
+
   update(character:ICharacter):Promise<any> {
     if (character.$key) {
       this.charsFire$.update(character.$key, {name: character.name, notes: character.notes, publications: character.publications});

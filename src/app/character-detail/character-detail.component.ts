@@ -15,10 +15,18 @@ export class CharacterDetailComponent implements OnInit {
   @Output()
   characterUpdated:EventEmitter<Character> = new EventEmitter<Character>();
 
+  @Output()
+  characterDeleted:EventEmitter<Character> = new EventEmitter<Character>();
+  
+
   constructor() {}
 
   ngOnInit() {}
 
+  deleteCharacter() {
+    console.log('deleting');
+    this.characterDeleted.emit(this.character);
+  }
   updateCharacter(form) {
     if (form.dirty) {
       this.characterUpdated.emit(this.character);

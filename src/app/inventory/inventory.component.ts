@@ -36,9 +36,13 @@ export class InventoryComponent implements OnInit {
     this.selectedPublication = publication;
   }
 
+  characterDeleted(character:ICharacter):void {
+    this.characterService.delete(character.$key);
+  }
+
   characterUpdated(character:ICharacter):void {
     this.characterService.update(character)
-      .then((char:ICharacter) => {console.log(char); this.selectedCharacter = char});
+      .then((char:ICharacter) => {this.selectedCharacter = char});
 
   }
 
