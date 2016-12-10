@@ -10,15 +10,15 @@
       <textarea #area (blur)="updateCharacter(form)" [(ngModel)]="character.notes" name="notes"></textarea>
     </p>
     <p>Publications:</p>
-      <select name="publications" id="publications">
-        <option *ngFor="let pub of publications" value="pub" class="publication-option">{{pub.title}}</option>
+      <select #select name="publications" id="publications">
+        <option *ngFor="let pub of publications" value="{{pub.title}}" class="publication-option">{{pub.title}}</option>
       </select>
+      <button (click)="addPublication(select.value)">Add</button>
       <div>
         <ul>
-          <li *ngFor="let publication of characterPublications()">{{publication}}</li>
+          <li *ngFor="let publication of character.publications">{{publication}}</li>
         </ul>
       </div>
-      <!--<input (blur)="updateCharacter(form)" [(ngModel)]="character.publications" name="publications"/>-->
     <br />
   </md-card-content>
   </form>

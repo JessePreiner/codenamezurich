@@ -5,7 +5,7 @@ export class Character implements ICharacter {
   notes:string;
   $key:string;
   relations:any[];
-  publications:string[];
+  publications:Array<string>;
 
   constructor(name: string, notes: string) {
     this.name = name;

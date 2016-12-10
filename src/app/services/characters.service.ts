@@ -24,7 +24,10 @@ export class CharactersService  {
 
   update(character:ICharacter):Promise<any> {
     if (character.$key) {
-      this.charsFire$.update(character.$key, {name: character.name || "", notes: character.notes || "", publications: character.publications || ""});
+      const dbChar = this.db.database.object(`/jesse/characters/${character.$key}`);
+      const updates = {name: character.name || "", notes: character.notes || "", publications: character.publications || new Array<string>()};
+      dbChar.set(updates)
+      // this.charsFire$.update(character.$key, updates );
       return Promise.resolve(character);
     } else {
       const ref = this.charsFire$.push(character);
