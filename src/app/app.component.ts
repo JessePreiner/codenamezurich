@@ -7,7 +7,7 @@ import { AngularFire, FirebaseListObservable, AuthMethods, AuthProviders } from 
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit, OnDestroy {
-  
+ 
   user:any = { 
     email:"", 
     displayName: ""
@@ -21,7 +21,7 @@ export class AppComponent implements OnInit, OnDestroy {
         this.user.email = user.auth.providerData[0].email;
         this.user.displayName = user.auth.providerData[0].displayName;
       } else {
-        this.af.auth.login();
+       this.af.auth.login();
       }
     });
   }

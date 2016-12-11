@@ -19,7 +19,6 @@ export class InventoryComponent {
   publications$: any;
 
   constructor(publicationService: PublicationsService, characterService: CharactersService) {
-    this.characterService = characterService;
     this.characters$ = characterService.charsFire$;
     this.publications$ = publicationService.pubsFire$;
   }
@@ -33,7 +32,7 @@ export class InventoryComponent {
   }
 
   characterDeleted(character:ICharacter):void {
-    this.characterService.delete(character.$key);
+    this.characterService.delete(character.$key).catch(err => alert(err.toString()));
   }
 
   characterUpdated(character:ICharacter):void {

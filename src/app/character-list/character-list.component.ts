@@ -12,7 +12,9 @@ export class CharacterListComponent {
 
   @Output() characterSelected:EventEmitter<ICharacter> = new EventEmitter<ICharacter>();
 
-  constructor() {}
+  constructor() {
+    console.log('char list ctor');
+  }
 
   onSelect(character:ICharacter) {
     this.characterSelected.emit(character || new Character("",""));
