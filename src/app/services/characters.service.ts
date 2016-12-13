@@ -9,7 +9,6 @@ export class CharactersService  {
   charsFire$:FirebaseListObservable<ICharacter[]>;
 
   constructor(private db:AngularFire) {
-    //TODO: use firebase auth to get /<user> segment
     this.charsFire$ = this.db.database.list(`/jesse/characters`);
   }
 
@@ -27,7 +26,6 @@ export class CharactersService  {
       const dbChar = this.db.database.object(`/jesse/characters/${character.$key}`);
       const updates = {name: character.name || "", notes: character.notes || "", publications: character.publications || new Array<string>()};
       dbChar.set(updates)
-      // this.charsFire$.update(character.$key, updates );
       return Promise.resolve(character);
     } else {
       const ref = this.charsFire$.push(character);

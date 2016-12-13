@@ -1,5 +1,11 @@
 <nav>
   <a routerLink="/inventory" routerLinkActive="active">Inventory</a>
   <a href="#">Manage</a>
+  <div class="userInfo">
+    <span>{{user.displayName}}</span>
+    <span>{{user.email}}</span>
+  </div>
 </nav>
+
+
 <router-outlet></router-outlet>

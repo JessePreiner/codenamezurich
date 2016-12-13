@@ -1,3 +1,7 @@
+* {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
 nav {
   margin:1rem;
   border-bottom:1px solid lightgray;
@@ -10,13 +14,23 @@ nav a {
   background-color: #eee;
   border-radius: 4px;
 }
-nav a:visited, a:link {
-  color: #6e738b;
-}
-nav a:hover {
+
+nav a:hover, nav a:visited  {
   color: #262626;
   background-color: #CFD8DC;
 }
+
 nav a.active {
-  color: #bec4e5;
+  color: #c9cbd6;
+  background-color: beige;
+}
+
+.userInfo {
+  display: inline-block;
+  position: relative;
+  margin-left: 50%;
+}
+
+.userInfo span:first-child {
+  font-weight: 800;
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AngularFire, FirebaseListObservable, AuthMethods, AuthProviders } from 'angularfire2';
 
 @Component({
@@ -6,7 +6,26 @@ import { AngularFire, FirebaseListObservable, AuthMethods, AuthProviders } from 
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit, OnDestroy {
   
- constructor() {}
+  user={ email:"", displayName: ""};
+
+  constructor(public af:AngularFire) {}
+
+  ngOnInit() {
+    this.af.auth.subscribe(user => {
+      if (user) {
+        this.user.email = user.auth.providerData[0].email;
+        this.user.displayName = user.auth.providerData[0].displayName;
+        console.log(JSON.stringify(user) );
+      } else {
+        this.af.auth.login().then(x => console.log(JSON.stringify(x)  ) );
+      }
+      
+    });
+  }
+
+  ngOnDestroy() {
+    this.af.auth.logout();
+  }
 }
