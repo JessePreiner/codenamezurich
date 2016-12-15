@@ -13,6 +13,7 @@ import { PublicationsService } from "./services/publications.service";
 import { CharactersService } from "./services/characters.service";
 import { CharacterDetailComponent } from './character-detail/character-detail.component';
 import { InventoryComponent } from './inventory/inventory.component';
+import { ManageComponent } from './manage/manage.component';
 
 export const firebaseConfig = {
     apiKey: "AIzaSyCQYbUtadvTq3Po9t858QLIVIl_ros1qnk",
@@ -32,7 +33,8 @@ const authConfig = {
     CharacterListComponent,
     PublicationsListComponent,
     CharacterDetailComponent,
-    InventoryComponent
+    InventoryComponent,
+    ManageComponent
   ],
   imports: [
     BrowserModule,

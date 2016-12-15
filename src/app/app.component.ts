@@ -8,9 +8,12 @@ import { AngularFire, FirebaseListObservable, AuthMethods, AuthProviders } from 
 })
 export class AppComponent implements OnInit, OnDestroy {
   
-  user={ email:"", displayName: ""};
+  user:any = { 
+    email:"", 
+    displayName: ""
+  };
 
-  constructor(public af:AngularFire) {}
+  constructor(private af:AngularFire) {}
 
   ngOnInit() {
     this.af.auth.subscribe(user => {
@@ -29,3 +32,4 @@ export class AppComponent implements OnInit, OnDestroy {
     this.af.auth.logout();
   }
 }
+

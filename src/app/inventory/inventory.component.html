@@ -1,4 +1,4 @@
-<div class="page-wrap">
+<div class="inventory-wrap">
   <publications-list class="items" (publicationSelected)="publicationSelected($event)" [publications]="publications$ | async"></publications-list>
   <character-list class="items" (characterSelected)="characterSelected($event)" [characters]="characters$ | async"></character-list>
   <character-detail *ngIf="selectedCharacter" [publications]="publications$ | async" (characterDeleted)="characterDeleted($event)" (characterUpdated)="characterUpdated($event)" [character]="selectedCharacter"></character-detail>
