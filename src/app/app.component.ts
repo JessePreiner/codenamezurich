@@ -20,11 +20,9 @@ export class AppComponent implements OnInit, OnDestroy {
       if (user) {
         this.user.email = user.auth.providerData[0].email;
         this.user.displayName = user.auth.providerData[0].displayName;
-        console.log(JSON.stringify(user) );
       } else {
-        this.af.auth.login().then(x => console.log(JSON.stringify(x)  ) );
+        this.af.auth.login();
       }
-      
     });
   }
 

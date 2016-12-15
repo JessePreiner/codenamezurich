@@ -1,5 +1,5 @@
 import { IPublication } from './../models/interfaces/ipublication';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ICharacter } from "../models/interfaces/icharacter";
 import { PublicationsService } from "../services/publications.service";
 import { CharactersService } from "../services/characters.service";
@@ -9,7 +9,7 @@ import { CharactersService } from "../services/characters.service";
   templateUrl: './inventory.component.html',
   styleUrls: ['./inventory.component.css']
 })
-export class InventoryComponent implements OnInit {
+export class InventoryComponent {
 
   characterService:CharactersService;
   selectedPublication: IPublication;
@@ -20,7 +20,6 @@ export class InventoryComponent implements OnInit {
 
   constructor(publicationService: PublicationsService, characterService: CharactersService) {
     this.characterService = characterService;
-
     this.characters$ = characterService.charsFire$;
     this.publications$ = publicationService.pubsFire$;
   }
@@ -40,9 +39,5 @@ export class InventoryComponent implements OnInit {
   characterUpdated(character:ICharacter):void {
     this.characterService.update(character)
       .then((char:ICharacter) => {this.selectedCharacter = char});
-
   }
-
-  ngOnInit() {}
-
 }
