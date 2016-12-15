@@ -10,6 +10,9 @@ export class PublicationsService {
 
     constructor(private db:AngularFire) {
     this.pubsFire$ = this.db.database.list(`/publications`);
+
+
+
   }
   
 }

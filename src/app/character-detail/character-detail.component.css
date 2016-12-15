@@ -6,3 +6,7 @@
 input, textarea {
   width:100%;
 }
+
+select#publications {
+  max-width: 100%;
+}
