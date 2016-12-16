@@ -1,3 +1,8 @@
+md-list {
+    overflow-y: scroll;
+    height: 500px;
+}
+
 .md-list-item {
   max-width: 100%;
   cursor:pointer;
